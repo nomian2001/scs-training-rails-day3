@@ -1,0 +1,60 @@
+<%= form_with(model: container, id: "form_container") do |form|  %>
+ 
+
+  <div class="container_group">
+    <%= form.label :container_type %>
+    <%= form.select :container_type, ['FR20', 'FR40', 'OT20','OT40']%>
+  </div>
+
+  <table class="item_group">
+    <tr class="title_item">
+        <th rowspan="2" class="title_item" >SEQ</th>
+        <th rowspan="2" class="title_item">PACKING STYLE</th>
+        <th colspan="4" class="title_item"> SIZE </th>
+        <th colspan="2" class="title_item"> GROSS WEIGHT </th>
+        <th colspan="2" class="title_item"> CENTER OF GRAVITY HEIGHT</th>
+        <th rowspan="2"  colspan="2" class="title_item"> ACTIONS </th>
+    </tr>
+    
+      <tr class="sub_title_item">
+        <td>LENGTH</td>
+        <td>WIDTH</td>
+        <td>HEIGHT</td>
+        <td>UNIT</td>
+        <td>WEIGHT</td>
+        <td>UNIT</td>
+        <td>HEIGHT</td>
+        <td>UNIT</td>
+      </tr>
+      <% if @container.items.exists? %>
+        <% @container.items.each_with_index do |item,index_of_item| %>
+          <tr class="item_result">
+            <td><%= index_of_item + 1 %></td>
+            <td><%= item.packing_style %></td>
+            <td><%= item.length %></td>
+            <td><%= item.width %></td>
+            <td><%= item.height %></td>
+            <td>cm</td>
+            <td><%= item.weight %></td>
+            <td>ton </td>
+            <td><%= item.cog_height %></td>
+            <td>cm</td>
+          </tr>
+        <% end%>
+      <% end%>
+  </table>
+
+  <div class="actions d-flex flex-row-reverse btn-group-action">
+    <div class="btn btn-success add-btn">
+      Add
+    </div>
+    <%= form.submit class: "btn btn-primary item_submit" %>
+    
+  </div>
+<% end %>
+
+<div id="float-form-item ">
+    <div class="float_form_area">
+      <%= render 'items/form', item: @item %>
+    </div>
+</div>

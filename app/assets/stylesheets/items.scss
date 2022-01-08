@@ -1,0 +1,90 @@
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#item_form{
+    display: none;
+    background-color: blue;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-radius: 15px;
+    color: #ececec;
+    z-index: 1000;
+    position: absolute;
+    top: 2rem;
+    left: 7rem;
+   
+    h1{
+        font-size: medium;
+        margin-bottom: 5px;
+        margin-top: 1rem;
+    }
+
+    .title{
+        font-size: 2rem;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    fieldset{
+        border: 1px solid #ddd !important;
+        height: 50px;
+        width: 250px;
+        padding: 0 1.4em 2em 1em !important;
+        margin: 0 0 1.5em 0 !important;
+    }
+
+    legend{
+        font-size: 0.8em !important;
+        width: auto;
+        text-align: left;
+        float: none !important;
+        padding: 5px;
+    }
+
+    .item_attribute{
+        background: transparent;
+        width: 225px;
+        border: none;
+        height: 30px;
+        color: #ececec;
+    }
+
+   
+    .item_attribute:hover, .item_attribute:focus{
+        outline: none;
+    }
+
+
+    fieldset:active, fieldset:hover{
+        border: 3px solid #927EA0 !important;
+    }
+
+    a{
+        text-decoration: none;
+        color: white
+    }
+
+
+    .form-select{
+        width: 300px;
+        border: 1px solid white;
+        color: #ececec;
+        background: transparent;
+    }
+
+    .form-select select:focus{
+        background-color: white;
+    }
+
+    .btn{
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-danger{
+        margin-left: 5px;
+        border-radius: 25px;
+    }
+
+    .btn-primary{
+        border-radius: 25px;
+    }
+}
