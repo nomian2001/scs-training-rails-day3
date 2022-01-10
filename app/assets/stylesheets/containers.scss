@@ -7,7 +7,7 @@ body {
     background-color: #424242;
     color: #ececec;
     padding: 0 25px 0 25px;
-    
+    position: absolute;
     table{
         width: 1200px;
         border-collapse: collapse;
@@ -178,6 +178,3 @@ body {
 }
 
   
-.blur-bg{
-    filter: blur(1rem);
-}

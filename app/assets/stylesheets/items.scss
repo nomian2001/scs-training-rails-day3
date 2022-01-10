@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 #item_form{
-    display: none;
-    background-color: blue;
+    color: #ececec;
+    background-color: #3b3b3b;
     padding: 1rem 1rem 0.5rem 1rem;
     border-radius: 15px;
-    color: #ececec;
     z-index: 1000;
     position: absolute;
     top: 2rem;
     left: 7rem;
-   
+    display: none;
     h1{
         font-size: medium;
         margin-bottom: 5px;

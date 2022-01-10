@@ -18,6 +18,7 @@ class ContainersController < ApplicationController
   # GET /containers/new
   def new
     @container = Container.new
+    @item = @container.items.build
     
   end
 
@@ -33,9 +34,11 @@ class ContainersController < ApplicationController
     respond_to do |format|
       if @container.save
         format.html { redirect_to container_url(@container), notice: "Container was successfully created." }
+        format.js
         format.json { render :show, status: :created, location: @container }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.js
         format.json { render json: @container.errors, status: :unprocessable_entity }
       end
     end
@@ -46,9 +49,11 @@ class ContainersController < ApplicationController
     respond_to do |format|
       if @container.update(container_params)
         format.html { redirect_to container_url(@container), notice: "Container was successfully updated." }
+        format.js
         format.json { render :show, status: :ok, location: @container }
       else
         format.html { render :edit, status: :unprocessable_entity }
+        format.js
         format.json { render json: @container.errors, status: :unprocessable_entity }
       end
     end
@@ -72,7 +77,7 @@ class ContainersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def container_params
-      params.require(:container).permit(:container_type)
+      params.require(:container).permit(:container_type, items_attributes: [:packing_style,:length,:width,:height,:weight,:cog_height_type,:cog_height])
     end
 
     def handle_input

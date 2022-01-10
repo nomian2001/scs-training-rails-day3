@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+    
     def index
         @items = Item.all
     end
 
     def show
-
     end
 
     def new
@@ -14,6 +13,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
+        @container = @item.container
     end
 
     def create
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
             redirect_to :new_container
         else 
             flash[:error] = "Not save!"
-            redirect_to :new_container
+            
         end
     end
 
@@ -32,12 +32,12 @@ class ItemsController < ApplicationController
 
     def destroy
         @item.destroy
-        redirect_to :new_container
+        redirect_back
     end
 
     private
         def get_container
-            @container = Container.find(params[:container_id])
+          
         end
 
         def set_item
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
         end
 
         def item_params
-            params.require(:item).permit(:packing_style,:length,:width, :height,:weight,:cog_height_type,:cog_height)
+            params.permit(:items).permit(:packing_style,:length,:width, :height,:weight,:cog_height_type,:cog_height)
         end
    
 end

@@ -11,4 +11,5 @@ class Container < ApplicationRecord
     CONTAINER_RESULT_OK = "OK"
     CONTAINER_RESULT_TBA = "TBA"
     
+    validates :container_type, presence: true;
 end

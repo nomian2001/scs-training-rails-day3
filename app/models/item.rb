@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
     belongs_to :container
+    validates :packing_style,:length,:width,:height,:weight,:cog_height_type, presence: true
+
 
     PACKING_STYLE_CASE = 'CASE'
     PACKING_STYLE_CRATE = 'CRATE'
