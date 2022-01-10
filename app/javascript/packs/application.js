@@ -81,8 +81,7 @@ $(function(){
            dataType: 'json',
            data: {container: input},
            success: function(data){
-                
-                
+                alert("You created container! Please back to home page to see")
            },
            error: function(data){
                
@@ -101,8 +100,11 @@ $(function(){
         $('#form_container').css("filter","");
     })
 
-    if($(".acceptance_item").text() == "ng")
-        $(".acceptance_item").css('background-color',"red")
+    let resultItems = document.querySelectorAll(".acceptance_item")
+    resultItems.forEach(resultItem => {
+        if(resultItem.innerHTML == "ng")
+            resultItem.classList.add("bg-red");
+    })
 });
 
 
