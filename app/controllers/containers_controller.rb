@@ -28,13 +28,13 @@ class ContainersController < ApplicationController
 
   # POST /containers or /containers.json
   def create
+    render js: container_params
     @container = Container.new(container_params)
 
   
     respond_to do |format|
       if @container.save
-        format.html { redirect_to container_url(@container), notice: "Container was successfully created." }
-        format.js
+        format.html { render container_url(@container), notice: "Container was successfully created." }
         format.json { render :show, status: :created, location: @container }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+import "jquery"
 
 import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/css/all"
@@ -16,12 +17,12 @@ import "@fortawesome/fontawesome-free/css/all"
 
 
 
-window.onload = function(){
+$(function(){
     
     var items = new Array;
     var index = 1;
 
-    $('#item_form').off('submit').on("submit",function(e) {
+    $('#item_form').on("submit",function(e) {
         e.preventDefault();
         if (!this.checkValidity()) return;
         let item = {};
@@ -29,7 +30,6 @@ window.onload = function(){
         for(let i = 1; i < input.length; i++ ){
             item[input[i].name] = input[i].value;
         }
-        alert(Array.isArray(items))
         items.push(item);
         $('#form_container table tr:last').after(`
             <tr class="item_result">
@@ -57,7 +57,9 @@ window.onload = function(){
             </tr>
         `)
 
-        $(this).get(0).reset()
+        $(this).get(0).reset();
+        $(this).toggle();
+        $('#form_container').css("filter","");
         index++;
     });
 
@@ -99,7 +101,9 @@ window.onload = function(){
         $('#form_container').css("filter","");
     })
 
-};
+    if($(".acceptance_item").text() == "ng")
+        $(".acceptance_item").css('background-color',"red")
+});
 
 
 Rails.start()

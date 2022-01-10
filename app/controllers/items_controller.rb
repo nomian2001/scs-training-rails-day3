@@ -31,8 +31,9 @@ class ItemsController < ApplicationController
     end 
 
     def destroy
+        @container = @item.container
         @item.destroy
-        redirect_back
+        redirect_to edit_container_url(@container.id)
     end
 
     private
